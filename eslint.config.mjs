@@ -11,7 +11,7 @@ export default defineConfig([
     rules: {
       'no-unused-vars': 'error',
       'prefer-const': 'error',
-      'no-console': 'warn'
+      'no-console': 'warn',
     },
   },
   { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
