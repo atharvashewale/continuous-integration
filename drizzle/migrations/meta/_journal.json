@@ -36,6 +36,13 @@
       "when": 1794476078993,
       "tag": "0004_naive_speed_demon",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794476591602,
+      "tag": "0005_rainy_exodus",
+      "breakpoints": true
     }
   ]
 }
