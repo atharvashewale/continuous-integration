@@ -8,6 +8,13 @@
       "when": 1793637609684,
       "tag": "0000_futuristic_shadowcat",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794472966190,
+      "tag": "0001_cute_smasher",
+      "breakpoints": true
     }
   ]
 }

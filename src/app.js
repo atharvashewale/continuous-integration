@@ -3,6 +3,7 @@ const { join } = require('node:path');
 const validator = require('validator');
 const { getDb } = require('./db/index.js');
 const { subscribers } = require('./db/schema.js');
+const { emailAddress } = require('effect/FastCheck');
 
 const app = express();
 const publicDir = join(__dirname, '..', 'public');
@@ -28,7 +29,7 @@ app.post('/api/subscribers', async (req, res) => {
 
     await db
       .insert(subscribers)
-      .values({ email: req.body.email })
+      .values({ email: email, emailAddress: email })
       .onConflictDoNothing({ target: subscribers.email });
 
     res.sendStatus(200);
