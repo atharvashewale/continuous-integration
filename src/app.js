@@ -3,7 +3,7 @@ const { join } = require('node:path');
 const validator = require('validator');
 const { getDb } = require('./db/index.js');
 const { subscribers } = require('./db/schema.js');
-
+const { sql } = require('drizzle-orm');
 const app = express();
 const publicDir = join(__dirname, '..', 'public');
 
@@ -13,6 +13,23 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/', async (req, res) => {
   res.sendFile(join(publicDir, 'index.html'));
+});
+
+app.get('/health', async (req, res) => {
+  try {
+    await getDb().execute(sql`select 1`);
+
+    res.status(200).json({
+      status: 'ok',
+    });
+  } catch (err) {
+    console.error('Health check failed:', err);
+
+    res.status(503).json({
+      status: 'error',
+      message: 'Database unavailable',
+    });
+  }
 });
 
 app.post('/api/subscribers', async (req, res) => {
