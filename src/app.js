@@ -3,7 +3,6 @@ const { join } = require('node:path');
 const validator = require('validator');
 const { getDb } = require('./db/index.js');
 const { subscribers } = require('./db/schema.js');
-const { emailAddress } = require('effect/FastCheck');
 
 const app = express();
 const publicDir = join(__dirname, '..', 'public');
